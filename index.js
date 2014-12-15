@@ -65,7 +65,7 @@ function fleecyServer(params) {
 						console.log(chalk.red('COMPILE FAILED!'));
 						console.log(chalk.red(err.err));
 						console.log(chalk.red(err.stderr));
-						var stringContainingNewLines = err.err + err.stdout + err.stderr;
+						var stringContainingNewLines = err.err + '\n' + err.stdout + '\n' + err.stderr;
 						// var htmlString = stringContainingNewLines.replace(/(\r\n|\n|\r)/gm, "<br>")
 						var htmlString = encodeURI(stringContainingNewLines);
 						statusSwfParams.compilerOptions.defines = {

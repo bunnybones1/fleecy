@@ -12,7 +12,10 @@
   "dependencies": {
     "connect": "^3.3.3",
     "connect-livereload": "^0.5.2",
-    "forever-monitor": "^1.5.2"
+    "flex-sdk": "^4.6.0-0",
+    "forever-monitor": "^1.5.2",
+    "serve-static": "^1.7.1",
+    "swfobject-npm": "^2.3.0-1"
   },
   "devDependencies": {},
   "scripts": {

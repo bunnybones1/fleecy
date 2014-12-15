@@ -3,7 +3,7 @@ var forever = require('forever-monitor');
 function fleecy(as3Path, as3Root) {
 
 	var child = new (forever.Monitor)('./fleecyServer.js', {
-		max: 3,
+		max: 1,
 		silent: false,
 		args: [as3Path, as3Root]
 	});

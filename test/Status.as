@@ -9,7 +9,7 @@ package {
 	public class Status extends Sprite {
 		public var circle:Shape;
 		public var textField:TextField;
-		private static const verbage:String = STATUS::log;
+		private static const _verbage:String = STATUS::log;
 		public function Status() {
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;
@@ -23,7 +23,9 @@ package {
 			format.size = 15;
 			textField = new TextField();
 			textField.defaultTextFormat = format;
-			textField.text = unescape(verbage);
+			var pattern:RegExp = /%%COMMA%%/g;
+			var verbage:String = _verbage.replace(pattern, ",");
+			textField.htmlText = unescape(verbage);
 			textField.width = stage.stageWidth;
 			textField.height = stage.stageHeight;
             textField.multiline = true;

@@ -66,10 +66,10 @@ function fleecyServer(params) {
 						console.log(chalk.red(err.err));
 						console.log(chalk.red(err.stderr));
 						var stringContainingNewLines = err.err + err.stdout + err.stderr;
-						var htmlString = stringContainingNewLines.replace(/(\r\n|\n|\r)/gm, "<br>")
-						htmlString = encodeURI(htmlString);
+						// var htmlString = stringContainingNewLines.replace(/(\r\n|\n|\r)/gm, "<br>")
+						var htmlString = encodeURI(stringContainingNewLines);
 						statusSwfParams.compilerOptions.defines = {
-							'STATUS::log' : htmlString.replace(',', '...')
+							'STATUS::log' : htmlString.replace(',', '%%COMMA%%')
 						}
 						compileActionscript(statusSwfParams.inputPath, statusSwfParams.compilerOptions, function() {
 							serveThatSwf(statusSwfParams.compilerOptions.output);

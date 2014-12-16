@@ -1,6 +1,6 @@
 {
   "name": "fleecy",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A live-reloading, watchifying, as3-compiling flash server.",
   "main": "index.js",
   "license": "MIT",

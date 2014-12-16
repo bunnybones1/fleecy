@@ -15,6 +15,11 @@ function fleecyServer(params) {
 			'swf-version' : 13,
 			'use-gpu' : true,
 			'output' : 'test.swf'
+		},
+		embedOptions : {
+			params: {},
+			attributes: {},
+			flashvars: {}
 		}
 	}, params || {});
 	var statusSwfParams = _.cloneDeep(params);
@@ -95,7 +100,7 @@ function fleecyServer(params) {
 	'			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />' +
 	'			<script type="text/javascript" src="swfobject.js"></script>' +
 	'			<script type="text/javascript">' +
-	'			swfobject.embedSWF("' + params.compilerOptions.output + '", "myContent", "100%", "100%", "10.0.0", "expressInstall.swf");' +
+	'			swfobject.embedSWF("' + params.compilerOptions.output + '", "myContent", "100%", "100%", "10.0.0", "expressInstall.swf",' + JSON.stringify(params.embedOptions.flashvars) + ', ' + JSON.stringify(params.embedOptions.params) + ', ' + JSON.stringify(params.embedOptions.attributes) + ');' +
 	'			</script>' +
 	'		</head>' +
 	'	<body style="margin: 0px;">' +

@@ -13,5 +13,10 @@ new fleecy({
 				'./example/extraSrc',
 				'./example/extraSrc2'
 			]
+		},
+		embedOptions: {
+			params: {
+				wmode: 'direct'
+			}
 		}
     });

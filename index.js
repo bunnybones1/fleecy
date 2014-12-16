@@ -30,7 +30,7 @@ function fleecyServer(params) {
 	app.use(serveStatic(__dirname + "/tmp"));
 
 	if(params.livereload) {
-		var folder_path = path.resolve(__dirname, path.dirname(params.inputPath));
+		var folder_path = path.resolve(path.dirname(path.resolve(params.inputPath)));
 
 		livereload_server = livereload.createServer({exts:["as"]});
 		console.log('watching', folder_path);

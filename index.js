@@ -18,7 +18,7 @@ function fleecyServer(params) {
 		}
 	}, params || {});
 	var statusSwfParams = _.cloneDeep(params);
-	statusSwfParams.inputPath = 'test/Status.as';
+	statusSwfParams.inputPath = path.resolve(__dirname + '/test/Status.as');
 	statusSwfParams.compilerOptions.output = 'Status.swf';
 
 	if(!params.compilerOptions.output) params.compilerOptions.output = params.inputPath.replace('.as', '.swf');

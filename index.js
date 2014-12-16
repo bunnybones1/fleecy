@@ -18,7 +18,7 @@ function fleecyServer(params) {
 		}
 	}, params || {});
 	var statusSwfParams = _.cloneDeep(params);
-	statusSwfParams.inputPath = path.resolve(__dirname + '/test/Status.as');
+	statusSwfParams.inputPath = path.resolve(__dirname + '/Status.as');
 	statusSwfParams.compilerOptions.output = 'Status.swf';
 
 	if(!params.compilerOptions.output) params.compilerOptions.output = params.inputPath.replace('.as', '.swf');
@@ -27,7 +27,7 @@ function fleecyServer(params) {
 
 	var serveStatic = require('serve-static');
 	var app = connect();
-	app.use(serveStatic(__dirname + "/tmp"));
+	app.use(serveStatic(__dirname + "/staticServe"));
 
 	if(params.livereload) {
 		var folder_path = path.resolve(path.dirname(path.resolve(params.inputPath)));

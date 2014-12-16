@@ -3,6 +3,8 @@ var _ = require('lodash');
 var fs = require('fs');
 var compileActionscript = require('compile-actionscript');
 var chalk = require('chalk');
+var livereload = require('livereload');
+var connect = require('connect');
 
 function fleecyServer(params) {
 	params = _.merge({
@@ -20,20 +22,22 @@ function fleecyServer(params) {
 	statusSwfParams.compilerOptions.output = 'Status.swf';
 
 	if(!params.compilerOptions.output) params.compilerOptions.output = params.inputPath.replace('.as', '.swf');
-
-	console.log('watching', params.inputPath);
 	console.log('compiling', params.inputPath);
 	console.log('serving on port:', params.port );
 
-	var connect = require('connect');
 	var serveStatic = require('serve-static');
 	var app = connect();
 	app.use(serveStatic(__dirname + "/tmp"));
+
 	if(params.livereload) {
-		app.use(require('connect-livereload')({
-			port: 35729
-		}));
+		var folder_path = path.resolve(__dirname, path.dirname(params.inputPath));
+
+		livereload_server = livereload.createServer({exts:["as"]});
+		console.log('watching', folder_path);
+		livereload_server.watch(folder_path);
 	}
+
+
 
 	function respond(msg) {
 		msg = msg || 'hello world';
@@ -98,6 +102,7 @@ function fleecyServer(params) {
 	'		<div id="myContent">' +
 	'			TEST' +
 	'		</div>' +
+	'		<script src="http://' + ('localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></script>' +
 	'	</body>' +
 	'</html>';
 	app.use(respond(html));

@@ -1,3 +1,5 @@
 var fleecy = require('./');
 
-new fleecy('./test/Main.as');
+new fleecy({
+        inputPath:'./test/Main.as'
+    });

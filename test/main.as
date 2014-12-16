@@ -16,11 +16,11 @@ package {
 			redrawCircle();
 
 			var textField:TextField = new TextField();
-			textField.text = 'CIRCLE FUN';sadsa
+			textField.text = 'CIRCLE FUN';
             textField.multiline = true;
             textField.wordWrap = true;
 			addChild(textField);
-			stage.addEventListener(Event.RESIZE, resizeListener); 
+			stage.addEventListener(Event.RESIZE, resizeListener);
 		}
 
 		public function redrawCircle() {
